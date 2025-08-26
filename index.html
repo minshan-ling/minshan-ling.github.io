@@ -227,7 +227,7 @@
                 <div class="text-center mb-16">
                     <h3 class="text-2xl font-bold text-white">Pricing & Quick Payments</h3>
                     <p class="text-gray-400 mt-4 max-w-2xl mx-auto">
-                        My rates are project-based and competitive, typically ranging from $5,000 to $50,000 depending on complexity. For consultations or smaller, well-defined tasks, my hourly rate is $150.
+                        My rates are project-based and competitive, typically ranging from $500 to $10,000 depending on complexity. For consultations or smaller, well-defined tasks, my hourly rate is $150.
                     </p>
                     <div class="mt-6">
                         <a href="https://paypal.me/your-link-here" target="_blank" rel="noopener noreferrer" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-full text-base transition-transform transform hover:scale-105">
@@ -265,6 +265,11 @@
 
     <!-- Footer -->
     <!-- For Jekyll, this could be in _includes/footer.html -->
+    <footer class="bg-gray-900 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; 2024 Minshan Ling. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script>
         // Mobile menu toggle
@@ -282,6 +287,31 @@
                 mobileMenu.classList.add('hidden');
             });
         }
+
+        // Contact form submission
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+
+        contactForm.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Clear previous status messages
+            formStatus.innerHTML = '';
+
+            // Create and display the success message
+            const successMessage = document.createElement('p');
+            successMessage.className = 'text-green-400';
+            successMessage.textContent = 'Message Sent! Thank you for reaching out.';
+            formStatus.appendChild(successMessage);
+
+            // Reset the form fields
+            contactForm.reset();
+
+            // Optional: Hide the success message after a few seconds
+            setTimeout(() => {
+                formStatus.innerHTML = '';
+            }, 5000);
+        });
     </script>
 
 </body>
